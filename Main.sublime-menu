@@ -1,5 +1,15 @@
 [
 	{
+		"id": "selection",
+		"children":
+		[
+			{
+				"caption": "Expand Region",
+				"command": "expand_region"
+			}
+		]
+	},
+	{
 		"caption": "Preferences",
 		"id": "preferences",
 		"mnemonic": "n",
