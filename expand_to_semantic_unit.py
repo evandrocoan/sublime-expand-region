@@ -45,7 +45,7 @@ def expand_to_semantic_unit(string, startIndex, endIndex):
         else:
           symbolStack.append(symbol)
 
-    # print(char, symbolStack)
+    # print("ExpandRegion, expand_to_semantic_unit.py, " + char + " " + symbolStack)
     searchIndex -= 1
 
   searchIndex = endIndex;
@@ -68,10 +68,11 @@ def expand_to_semantic_unit(string, startIndex, endIndex):
     if searchIndex >= len(string) - 1:
       return None
 
-    # print(char, symbolStack, searchIndex)
+    # print("ExpandRegion, latex.py, " + char + " " + symbolStack + " " + searchIndex)
     searchIndex += 1
 
   s = string[newStartIndex:newEndIndex]
+  # print( utils )
   trimResult = utils.trim(s)
   if trimResult:
     newStartIndex = newStartIndex + trimResult["start"];
