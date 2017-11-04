@@ -7,10 +7,12 @@ try:
   import python
   import utils
 except:
+  from . import javascript
   from . import html
   from . import latex
   from . import python
   from . import utils
+
 
 def expand(string, start, end, language="", settings=None):
 
