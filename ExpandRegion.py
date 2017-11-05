@@ -73,6 +73,7 @@ class ExpandRegionCommand(sublime_plugin.TextCommand):
       print("ExpandRegion, ExpandRegion.py, Determined language: '{0}'".format(language))
 
     new_regions = []
+    call_sublime_expand_scope = False
     for region in self.view.sel():
       string = self.view.substr(sublime.Region(0, self.view.size()))
       start = region.begin()
@@ -84,18 +85,25 @@ class ExpandRegionCommand(sublime_plugin.TextCommand):
         if debug:
           print("ExpandRegion, ExpandRegion.py, startIndex: {0}, endIndex: {1}, type: {2}".format(result["start"], result["end"], result["type"]))
       else:
-        # if there is no result, keep the current region
-        new_regions.append(region)
+        # # if there is no result, keep the current region
+        # new_regions.append(region)
+        call_sublime_expand_scope = True
 
-    # replace the selections with the new regions
-    view.sel().clear()
-    for sel in new_regions:
-      view.sel().add(sel)
+    if call_sublime_expand_scope:
+      #  "command": "expand_selection", "args": {"to": "scope"}, "caption": "Expand Selection to Scope" }
+      if debug:
+        print( "ExpandRegion, ExpandRegion.py, calling Sublime Text expand_selection to scope..." )
+      view.run_command( "expand_selection", {"to": "scope"} )
+    else:
+      # replace the selections with the new regions
+      view.sel().clear()
+      for sel in new_regions:
+        view.sel().add(sel)
 
-    settings = sublime.load_settings("ExpandRegion.sublime-settings")
-    do_force_enable_soft_undo = settings.get("force_soft_undo_integration")
-    if do_force_enable_soft_undo:
-      _force_enable_soft_undo(view, edit, new_regions)
+      settings = sublime.load_settings("ExpandRegion.sublime-settings")
+      do_force_enable_soft_undo = settings.get("force_soft_undo_integration")
+      if do_force_enable_soft_undo:
+        _force_enable_soft_undo(view, edit, new_regions)
 
 
 class ExpandRegionContext(sublime_plugin.EventListener):
