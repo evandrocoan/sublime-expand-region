@@ -1,0 +1,9 @@
+[
+    { "keys": ["ctrl+shift+space"], "command": "expand_region", "args": { "debug": false } },
+    // {
+    //     "keys": ["ctrl+u"],
+    //     "command": "expand_region",
+    //     "args": {"undo": true},
+    //     "context": [{ "key": "expand_region_soft_undo" }]
+    // },
+]
