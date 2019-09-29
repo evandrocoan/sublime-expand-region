@@ -10,13 +10,35 @@ It works similar to ExpandRegion for Emacs and "Structural Selection" (Control-W
 
 ## Prereleases
 
-Pre-releases help us to test new features and improve the stability of releases. You can benefit the newest features and help us testing them. Just open *Preferences > Package Settings > Package Control > Settings - User* and insert at a reasonable (correct JSON syntax) position: 
+Pre-releases help us to test new features and improve the stability of releases. You can benefit the newest features and help us testing them. Just open *Preferences > Package Settings > Package Control > Settings - User* and insert at a reasonable (correct JSON syntax) position:
 
 ``` js
     "install_prereleases": ["ExpandRegion"],
 ```
 
 If you also use pre-releases of other packages just add them comma separated into the list.
+
+
+## Installation
+
+### By Package Control
+
+1. Download & Install `Sublime Text 3` (https://www.sublimetext.com/3)
+1. Go to the menu `Tools -> Install Package Control`, then,
+   wait few seconds until the `Package Control` installation finishes
+1. Go to the menu `Preferences -> Package Control`
+1. Type `Package Control Add Channel` on the opened quick panel and press <kbd>Enter</kbd>
+1. Then, input the following address and press <kbd>Enter</kbd>
+   ```
+   https://raw.githubusercontent.com/evandrocoan/StudioChannel/master/channel.json
+   ```
+1. Now, go again to the menu `Preferences -> Package Control`
+1. This time type `Package Control Install Package` on the opened quick panel and press <kbd>Enter</kbd>
+1. Then, search for `ExpandRegion` and press <kbd>Enter</kbd>
+
+See also:
+1. [ITE - Integrated Toolset Environment](https://github.com/evandrocoan/ITE)
+1. [Package control docs](https://packagecontrol.io/docs/usage) for details.
 
 
 ## Example
@@ -88,37 +110,11 @@ and so on...
 
 and so on...
 
-## Installing
-
-**With the Package Control plugin:** The easiest way to install ExpandRegion is through Package Control, which can be found at this site: [http://wbond.net/sublime_packages/package_control](http://wbond.net/sublime_packages/package_control)
-
-Once you install Package Control, restart ST and bring up the Command Palette (`Command+Shift+P` on OS X, `Control+Shift+P` on Linux/Windows). Select "Package Control: Install Package", wait while Package Control fetches the latest package list, then select ExpandRegion when the list appears. The advantage of using this method is that Package Control will automatically keep ExpandRegion up to date with the latest version.
-
-**Without Git:** Download the latest source from [GitHub](https://github.com/aronwoost/sublime-expand-region) and copy the ExpandRegion folder to your Sublime Text "Packages" directory.
-
-**With Git:** Clone the repository in your Sublime Text "Packages" directory:
-
-    git clone https://github.com/aronwoost/sublime-expand-region.git ExpandRegion
-
-
-The "Packages" directory is located at:
-
-* OS X:
-
-        ~/Library/Application Support/Sublime Text 2/Packages/
-
-* Linux:
-
-        ~/.config/sublime-text-2/Packages/
-
-* Windows:
-
-        %APPDATA%/Sublime Text 2/Packages/
 
 ## Using
 
 - Set a shortcut.
-  Open "Key Bindings - User" and add to following line: 
+  Open "Key Bindings - User" and add to following line:
 ``` js
 { "keys": ["super+shift+space"], "command": "expand_region" },
 {
@@ -137,11 +133,11 @@ Note: third party plugins can not properly hook into the history. So soft-undo i
 
 This plugin is inspired by the amazing [expand-region for Emacs](https://github.com/magnars/expand-region.el).
 
-Here a video showing this feature (in Emacs):  
+Here a video showing this feature (in Emacs):
 
 [![](http://img.youtube.com/vi/_RvHz3vJ3kA/0.jpg)](http://www.youtube.com/watch?v=_RvHz3vJ3kA?feature=player_embedded&v=M)
 
-Read more:  
+Read more:
 [Extend Selection by Semantic Unit](http://ergoemacs.org/emacs/syntax_tree_walk.html)
 
 ## License
